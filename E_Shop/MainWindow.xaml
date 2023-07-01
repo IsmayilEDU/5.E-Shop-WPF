@@ -12,6 +12,7 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
+        Loaded="InitializeProgram"
         >
     <Border CornerRadius="30"
             Background="White">
@@ -56,8 +57,10 @@
             </DockPanel>
             <!--#endregion-->
 
+            
             <!--#region Program-->
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1"
+                  x:Name="Menus">
                 
                 <!--#region Columns-->
                 <Grid.ColumnDefinitions>
@@ -67,17 +70,211 @@
                 <!--#endregion-->
 
                 <!--#region Buttons of menu-->
-                <ListBox>
-                    <ListBoxItem>
-                       
+                <ListBox x:Name="MenuItems"
+                         SelectionChanged="ChangeMenuItem"
+                         BorderThickness="0">
+                    
+                    <!--Products-->
+                    <ListBoxItem Style="{StaticResource sListBoxItem}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:ImageAwesome Icon="ProductHunt"
+                                             Style="{StaticResource sIcon}"/>
+                            <TextBlock Text="Products"
+                                       FontSize="22"
+                                       Margin="15 0 0 0"/>
+                        </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
-                        
+                    <!--Basket-->
+                    <ListBoxItem Style="{StaticResource sListBoxItem}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:ImageAwesome Icon="ShoppingBasket"
+                                             Style="{StaticResource sIcon}"/>
+                            <TextBlock Text="Basket"
+                                       FontSize="22"
+                                       Margin="15 0 0 0"/>
+                        </StackPanel>
                     </ListBoxItem>
+                    
                 </ListBox>
                 <!--#endregion-->
+
+                <!--#region Menu of products-->
+                <Grid Grid.Column="1"
+                      x:Name="ProductsMenu">
+
+                    <!--#region Columns-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#endregion-->
+
+                    <!--#region List of Products-->
+                    
+                    <ListView Grid.Column="0"
+                              x:Name="ListOfProducts"
+                              ItemsSource="{Binding Products}"
+                              Background="AliceBlue"
+                              BorderThickness="0" 
+                              SelectionMode="Single"
+                              SelectionChanged="ListOfProducts_Selected">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="129"
+                                                Header="Name"
+                                                DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Width="140"
+                                                Header="Category"
+                                                DisplayMemberBinding="{Binding Category, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Width="125"
+                                                Header="Price (AZN)"
+                                                DisplayMemberBinding="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+                            </GridView>
+                        </ListView.View>
+                        
+                    </ListView>
+                    <!--#endregion-->
+
+                    <!--#region Product info-->
+                    <StackPanel Grid.Column="1"
+                                Margin="10 0 10 0">
+                        
+                        <!--Text of ProductInfo -->
+                        <TextBlock Text="Product info"
+                                   HorizontalAlignment="Center"
+                                   FontSize="25"
+                                   FontWeight="Bold"
+                                   Margin="0 20 0 20"/>
+                        
+                        <!--Label of name-->
+                        <Label HorizontalAlignment="Center"
+                               Content="Name"
+                               FontSize="20"
+                               FontStyle="Italic"/>
+                        
+                        <!--Name of product-->
+                        <TextBlock Text="{Binding SelectedProduct.Name}"
+                                   FontSize="20"
+                                   Background="AliceBlue"/>
+                        
+                        <!--Label of Category-->
+                        <Label HorizontalAlignment="Center"
+                               Content="Category"
+                               FontSize="20"
+                               FontStyle="Italic"/>
+
+                        <!--Category of product-->
+                        <TextBlock Text="{Binding SelectedProduct.Category}"
+                                   FontSize="20"
+                                   Background="AliceBlue"/>
+
+                        <!--Label of Price-->
+                        <Label HorizontalAlignment="Center"
+                               Content="Name"
+                               FontSize="20"
+                               FontStyle="Italic"/>
+                        
+                        <!--Name of product-->
+                        <TextBlock Text="{Binding SelectedProduct.Price}"
+                                   FontSize="20"
+                                   Background="AliceBlue"/>
+
+                        <!--Button for add to basket the product-->
+                        <Button Style="{StaticResource sRectangleButton}" Background="#FF3D4CC7" 
+                                Click="AddToBasketButton_Click"
+                                Margin="0 20 0 0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Add to basket"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Bold"
+                                           Margin="5 0 0 0"/>
+                            </StackPanel>
+                        </Button>
+
+                    </StackPanel>
+                    <!--#endregion-->
+                    
+                </Grid>
+                <!--#endregion-->
                 
+                <!--#region Menu of basket-->
+                <Grid Grid.Column="1"
+                      x:Name="BasketMenu">
+                    
+                    <!--#region Columns-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="140"/>
+                    </Grid.ColumnDefinitions>
+                    <!--#endregion-->
+                    
+                    <!--List of BasketProducts-->
+                    <ListView Grid.Column="0"
+                              x:Name="ListOfBasketProducts"
+                              ItemsSource="{Binding BasketProducts}"
+                              Background="AliceBlue"
+                              BorderThickness="0" 
+                              SelectionMode="Single"
+                              SelectionChanged="ListOfBasketProducts_Selected">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="151"
+                                                Header="Name"
+                                                DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Width="151"
+                                                Header="Category"
+                                                DisplayMemberBinding="{Binding Category, UpdateSourceTrigger=PropertyChanged}"/>
+                                <GridViewColumn Width="152"
+                                                Header="Price (AZN)"
+                                                DisplayMemberBinding="{Binding Price, UpdateSourceTrigger=PropertyChanged}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <!--Buttons for operations-->
+                    <StackPanel Grid.Column="1">
+                        
+                        <!--Button of delete-->
+                        <Button Style="{StaticResource sRectangleButton}"
+                                Margin="0 90 0 0"
+                                Background="#FFF94545"
+                                Width="100"
+                                Click="DeleteButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="MinusCircle"
+                                                 Style="{StaticResource sIcon}"/>
+                                <TextBlock Text="Delete"
+                                           VerticalAlignment="Center"
+                                           FontSize="16"
+                                           Margin="5 0 0 0"
+                                           FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                        
+                        <!--Button of buy-->
+                        <Button Style="{StaticResource sRectangleButton}"
+                                Margin="0 80 0 0"
+                                Background="#FF495CFF"
+                                Width="100"
+                                Click="BuyButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="Money"
+                                                 Style="{StaticResource sIcon}"/>
+                                <TextBlock Text="Buy"
+                                           VerticalAlignment="Center"
+                                           FontSize="16"
+                                           Margin="5 0 0 0"
+                                           FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                    
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#endregion-->
             </Grid>
             <!--#endregion-->
             

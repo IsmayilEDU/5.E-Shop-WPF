@@ -53,11 +53,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\E_Shop\\E_Shop.csproj",
+      "projectUniqueName": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\5.E-Shop-WPF\\E_Shop\\E_Shop.csproj",
       "projectName": "E_Shop",
-      "projectPath": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\E_Shop\\E_Shop.csproj",
+      "projectPath": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\5.E-Shop-WPF\\E_Shop\\E_Shop.csproj",
       "packagesPath": "C:\\Users\\MSI NOTEBOOK\\.nuget\\packages\\",
-      "outputPath": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\E_Shop\\obj\\",
+      "outputPath": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\5.E-Shop-WPF\\E_Shop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MSI NOTEBOOK\\AppData\\Roaming\\NuGet\\NuGet.Config",

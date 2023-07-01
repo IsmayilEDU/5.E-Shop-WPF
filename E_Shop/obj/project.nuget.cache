@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SvvxhXKPcfXb1qA90I4EH/0bsej7NTLYYFsXoLRYgcT1k1egN/KQsAjFBkx8B/P6bd+JVqtfQVccpn0sGcYtcQ==",
+  "dgSpecHash": "nI4piV6YP6kEvDGJxOlvGMRJlcEaDldX3Vc1O81eNI1lJFgRTUlmNZT+NtOuS/f8+0djC4ScZlVmY4oikWncSA==",
   "success": true,
-  "projectFilePath": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\E_Shop\\E_Shop.csproj",
+  "projectFilePath": "C:\\Ismayil\\PROJECTS\\StepIT\\5.Desktop\\WPF\\Lesson 5 - DataSource ( E_Shop )\\5.E-Shop-WPF\\E_Shop\\E_Shop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MSI NOTEBOOK\\.nuget\\packages\\fontawesome.wpf\\4.7.0.9\\fontawesome.wpf.4.7.0.9.nupkg.sha512"
   ],

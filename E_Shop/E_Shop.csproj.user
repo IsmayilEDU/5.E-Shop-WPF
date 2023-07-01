@@ -22,5 +22,8 @@
     <Page Update="Templates\sListBoxItem.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Templates\sRectangleButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

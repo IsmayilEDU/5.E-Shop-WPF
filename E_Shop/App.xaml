@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="\Templates\sCircleButton.xaml" />
                 <ResourceDictionary Source="\Templates\sIcon.xaml" />
                 <ResourceDictionary Source="\Templates\sListBoxItem.xaml" />
+                <ResourceDictionary Source="\Templates\sRectangleButton.xaml" />
                 <!--#endregion-->
                 
             </ResourceDictionary.MergedDictionaries>
